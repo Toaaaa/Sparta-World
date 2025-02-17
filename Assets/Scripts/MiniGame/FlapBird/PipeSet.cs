@@ -6,10 +6,12 @@ using UnityEngine;
 public class PipeSet : MonoBehaviour
 {
     RectTransform rectTransform;
+    Vector2 originalRect;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        originalRect = rectTransform.anchoredPosition;
     }
 
     public void SetPipe()
@@ -20,9 +22,13 @@ public class PipeSet : MonoBehaviour
     }
     public void StartMoving()
     {
-        DOTween.To(() => rectTransform.anchoredPosition, x => rectTransform.anchoredPosition = x, new Vector2(-1700, rectTransform.position.y), 2f)
+        DOTween.To(() => rectTransform.anchoredPosition, x => rectTransform.anchoredPosition = x, new Vector2(-1700, rectTransform.anchoredPosition.y), 5f)
             .SetEase(Ease.Linear)
-            .OnComplete(() => this.gameObject.SetActive(false));
+            .OnComplete(() =>
+            {
+                rectTransform.anchoredPosition = originalRect;
+                this.gameObject.SetActive(false);
+            });
     }
     public void StopMoving()
     {
