@@ -23,7 +23,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private Player player;
+    public Player player;
+    public FlappyBirdManeger flappyBirdManeger;
+
+
+    [SerializeField] private GameStartUI gameStartUI;
+    [SerializeField] private GameObject game1;
+    [SerializeField] private GameObject game2;
+
+
 
     private void Awake()
     {
@@ -37,5 +45,21 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+    public void StartGame1()
+    {
+        game1.SetActive(true);
+    }
+    public void StartGame2()
+    {
+        game2.SetActive(true);
+    }
+    public void SetGameName(string name)
+    {
+        gameStartUI.gameName = name;
+    }
+    public void GameStartUIOn()
+    {
+        gameStartUI.gameObject.SetActive(true);
     }
 }
