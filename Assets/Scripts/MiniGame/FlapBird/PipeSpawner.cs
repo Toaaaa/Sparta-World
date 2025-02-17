@@ -21,14 +21,17 @@ public class PipeSpawner : MonoBehaviour
         if (isSpawning)
             return;
         isSpawning = true;
-        Debug.Log("파이프 생성대기 5초");
         await UniTask.Delay(2000);
+        if(!GameManager.Instance.flappyBirdManeger.StartGame)// 게임 종료시 파이프 생성 정지.
+        {
+            isSpawning = false;
+            return;
+        }
         for (int i = 0; i < pipeSets.Count; i++)
         {
             if (pipeSets[i].gameObject.activeSelf == false)
             {
-                Debug.Log("파이프 생성");
-                pipeSets[i].gameObject.SetActive(true);
+                pipeSets[i].gameObject.SetActive(true);// 파이프 생성
                 pipeSets[i].SetPipe();
                 pipeSets[i].StartMoving();
                 isSpawning = false;
