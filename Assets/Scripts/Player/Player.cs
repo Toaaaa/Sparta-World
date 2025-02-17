@@ -102,15 +102,21 @@ public class Player : MonoBehaviour
     }
     void InteractScan()// 스캔된 오브젝트와 상호작용.
     {
-        if(Input.GetButtonDown("Jump") && scannedObject != null)
+        if(Input.GetButtonDown("Jump") && scannedObject != null&& !cantAction)
         {
             if(scannedObject.tag == "Game1")
             {
                 Debug.Log("Game1 시작");
+                GameManager.Instance.SetGameName("Game1");
+                GameManager.Instance.GameStartUIOn();
+                cantAction = true;
             }
             if(scannedObject.tag == "Game2")
             {
                 Debug.Log("Game2 시작");
+                GameManager.Instance.SetGameName("Game2");
+                GameManager.Instance.GameStartUIOn();
+                cantAction = true;
             }
         }
     }
