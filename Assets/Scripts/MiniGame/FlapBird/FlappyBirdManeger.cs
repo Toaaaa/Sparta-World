@@ -49,6 +49,7 @@ public class FlappyBirdManeger : MonoBehaviour
         pipeSpawner.StopPipe();
         StartGame = false;
         ResultUI.SetActive(true);
+        GameManager.Instance.rankingGame1.SetScore(Score);
     }
     public void PlayAgain()
     {

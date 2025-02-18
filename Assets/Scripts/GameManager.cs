@@ -25,11 +25,14 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public FlappyBirdManeger flappyBirdManeger;
+    public LeaderBoard rankingGame1;
+    public LeaderBoard rankingGame2;
 
 
     [SerializeField] private GameStartUI gameStartUI;
     [SerializeField] private GameObject game1;
     [SerializeField] private GameObject game2;
+
 
 
 
