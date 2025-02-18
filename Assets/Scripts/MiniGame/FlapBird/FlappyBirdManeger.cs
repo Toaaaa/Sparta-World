@@ -51,7 +51,7 @@ public class FlappyBirdManeger : MonoBehaviour
         StartGame = false;
         ResultUI.SetActive(true);
         GameManager.Instance.rankingGame1.SetScore(Score);
-        scrollingBackground._x = 0;
+        scrollingBackground.xspd = 0;
     }
     public void PlayAgain()
     {
@@ -65,12 +65,12 @@ public class FlappyBirdManeger : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         StartGame = true;
         Score = 0;
-        scrollingBackground._x = 0.2f;// 배경 스크롤 속도.
+        scrollingBackground.xspd = 0.2f;// 배경 스크롤 속도.
     }
     private void GameSet()
     {
         pipeSpawner.ResetPipe();
         flyer.ResetFlyer();
-        scrollingBackground._x = 0;
+        scrollingBackground.xspd = 0;
     }
 }
