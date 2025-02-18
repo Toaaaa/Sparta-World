@@ -5,15 +5,10 @@ using UnityEngine;
 
 public class Flyer : MonoBehaviour
 {
-    RectTransform rect;
+    [SerializeField]RectTransform rect;
     [SerializeField] float jumpPower = 110f;
     [SerializeField] float jumpTime = 0.2f;
     [SerializeField] float gravityValue = 350;
-
-    private void Awake()
-    {
-        rect = GetComponent<RectTransform>();
-    }
 
     private void Update()
     {
@@ -34,5 +29,10 @@ public class Flyer : MonoBehaviour
     void GravityDown()
     {
         rect.anchoredPosition += Vector2.down * gravityValue * Time.deltaTime;
+    }
+
+    public void ResetFlyer()
+    {
+        rect.anchoredPosition = new Vector2(-430, 0);
     }
 }

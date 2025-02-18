@@ -15,6 +15,7 @@ public class UIButtonSelector : MonoBehaviour
         if (firstButton != null)
         {
             EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
+            ResetLastButtonSize();
             lastSelected = firstButton.gameObject;
             ScaleButton(lastSelected, scaleFactor); // 첫번째 버튼 크기 증가
         }

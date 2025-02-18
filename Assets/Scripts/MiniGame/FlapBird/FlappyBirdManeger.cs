@@ -9,26 +9,36 @@ public class FlappyBirdManeger : MonoBehaviour
     public PipeSpawner pipeSpawner;// 파이프 생성.
 
     public bool StartGame = false;
+    bool WaitingToStart = true;
     public int Score = 0;
 
     public GameObject ResultUI;
+    public GameObject PressSpaceToStart;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI resultScoreText;
-
-    private void Start()
-    {
-        StartCoroutine(StartGameCoroutine());
-    }
 
     private void Update()
     {
         scoreText.text =  "SCORE : " + Score.ToString();
         resultScoreText.text = "SCORE : " + Score.ToString();
+        if (WaitingToStart)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                WaitingToStart = false;
+                PressSpaceToStart.SetActive(false);
+                StartCoroutine(StartGameCoroutine());
+            }
+        }
+
     }
 
     private void OnEnable()
     {
-        //처음에는 playerSpaceToStart 텍스트 추가
+        PressSpaceToStart.SetActive(true);
+        ResultUI.SetActive(false);
+        WaitingToStart = true;
+        GameSet();
     }
     private void OnDisable()
     {
@@ -43,15 +53,19 @@ public class FlappyBirdManeger : MonoBehaviour
     public void PlayAgain()
     {
         GameSet();
+        ResultUI.SetActive(false);
+        PressSpaceToStart.SetActive(true);
+        WaitingToStart = true;
     }
     IEnumerator StartGameCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         StartGame = true;
         Score = 0;
     }
     private void GameSet()
     {
-
+        pipeSpawner.ResetPipe();
+        flyer.ResetFlyer();
     }
 }

@@ -48,4 +48,15 @@ public class PipeSpawner : MonoBehaviour
                     pipeSets[i].StopMoving();
         }
     }
+    public void ResetPipe()
+    {
+        for (int i = 0; i < pipeSets.Count; i++)
+        {
+            if (pipeSets[i].gameObject.activeSelf)
+            {
+                pipeSets[i].gameObject.SetActive(false);
+                pipeSets[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);// 위치 초기화.
+            }
+        }
+    }
 }
