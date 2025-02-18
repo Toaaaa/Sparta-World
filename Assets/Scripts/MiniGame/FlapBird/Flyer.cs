@@ -14,7 +14,7 @@ public class Flyer : MonoBehaviour
     {
         if (GameManager.Instance.flappyBirdManeger.StartGame)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 FlyUp();
             }
