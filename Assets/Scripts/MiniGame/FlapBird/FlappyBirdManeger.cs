@@ -7,6 +7,7 @@ public class FlappyBirdManeger : MonoBehaviour
 {
     public Flyer flyer;// 플레이어가 조종하는 캐릭터.
     public PipeSpawner pipeSpawner;// 파이프 생성.
+    public ScrollingBackground scrollingBackground;// 배경 스크롤.
 
     public bool StartGame = false;
     bool WaitingToStart = true;
@@ -50,6 +51,7 @@ public class FlappyBirdManeger : MonoBehaviour
         StartGame = false;
         ResultUI.SetActive(true);
         GameManager.Instance.rankingGame1.SetScore(Score);
+        scrollingBackground._x = 0;
     }
     public void PlayAgain()
     {
@@ -63,10 +65,12 @@ public class FlappyBirdManeger : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         StartGame = true;
         Score = 0;
+        scrollingBackground._x = 0.2f;// 배경 스크롤 속도.
     }
     private void GameSet()
     {
         pipeSpawner.ResetPipe();
         flyer.ResetFlyer();
+        scrollingBackground._x = 0;
     }
 }
