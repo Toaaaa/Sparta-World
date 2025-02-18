@@ -35731,7 +35731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3911becf7d9e432459097c00422897c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyer: {fileID: 0}
+  flyer: {fileID: 1739575141}
   pipeSpawner: {fileID: 35204992}
   StartGame: 0
   Score: 0
@@ -36272,6 +36272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9334542c5119c1a4a9a8303fcb76519a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpPower: 110
+  jumpTime: 0.2
+  gravityValue: 350
 --- !u!114 &1739575142
 MonoBehaviour:
   m_ObjectHideFlags: 0
