@@ -40,12 +40,18 @@ public class FlappyBirdManeger : MonoBehaviour
         StartGame = false;
         ResultUI.SetActive(true);
     }
-
-
+    public void PlayAgain()
+    {
+        GameSet();
+    }
     IEnumerator StartGameCoroutine()
     {
         yield return new WaitForSeconds(1f);
         StartGame = true;
         Score = 0;
+    }
+    private void GameSet()
+    {
+
     }
 }

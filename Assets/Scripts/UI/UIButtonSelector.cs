@@ -6,8 +6,19 @@ using UnityEngine.UI;
 
 public class UIButtonSelector : MonoBehaviour
 {
+    public Button firstButton;
     public float scaleFactor = 1.2f; // 버튼이 커질 크기
     private GameObject lastSelected; // 이전에 선택된 버튼 저장
+
+    private void OnEnable()
+    {
+        if (firstButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
+            lastSelected = firstButton.gameObject;
+            ScaleButton(lastSelected, scaleFactor); // 첫번째 버튼 크기 증가
+        }
+    }
 
     void Update()
     {
