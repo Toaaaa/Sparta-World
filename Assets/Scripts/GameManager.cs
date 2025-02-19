@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public FlappyBirdManeger flappyBirdManeger;
+    public FallingStoneManager fallingStoneManager;
     public LeaderBoard rankingGame1;
     public LeaderBoard rankingGame2;
     public GameObject outerCover;// 테두리

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class StoneSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+
+    public void StartSpawn()
+    {
+
+    }
+    public void ResetStone()
+    {
+
+    }
+    public void StopStone()
     {
         
     }
