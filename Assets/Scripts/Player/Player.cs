@@ -106,21 +106,18 @@ public class Player : MonoBehaviour
         {
             if(scannedObject.tag == "Game1")
             {
-                Debug.Log("Game1 시작");
                 GameManager.Instance.SetGameName("Game1");
                 GameManager.Instance.GameStartUIOn();
                 cantAction = true;
             }
             if(scannedObject.tag == "Game2")
             {
-                Debug.Log("Game2 시작");
                 GameManager.Instance.SetGameName("Game2");
                 GameManager.Instance.GameStartUIOn();
                 cantAction = true;
             }
             if(scannedObject.tag == "NPC")
             {
-                Debug.Log("NPC와 대화");
                 scannedObject.GetComponent<NpcTalk>().Talk();
             }
         }

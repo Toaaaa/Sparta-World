@@ -32,6 +32,7 @@ public class UIButtonSelector : MonoBehaviour
             lastSelected = selectedObj;
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (selectedObj != null)
@@ -39,7 +40,7 @@ public class UIButtonSelector : MonoBehaviour
                 Button btn = selectedObj.GetComponent<Button>();
                 btn?.onClick.Invoke(); // 현재 선택된 버튼 실행
             }
-        }
+        }*/
     }
 
     void ResetLastButtonSize()

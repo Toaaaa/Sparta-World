@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public FlappyBirdManeger flappyBirdManeger;
-    public FallingStoneManager fallingStoneManager;
+    public FallingStoneManager fallingStoneManager;   
     public LeaderBoard rankingGame1;
     public LeaderBoard rankingGame2;
     public GameObject outerCover;// 테두리
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameStartUI gameStartUI;
     [SerializeField] private GameObject game1;
     [SerializeField] private GameObject game2;
+    [SerializeField] private AudioSource bgm;
 
 
 
@@ -53,11 +54,13 @@ public class GameManager : MonoBehaviour
     public void StartGame1()
     {
         outerCover.SetActive(true);
+        bgm.Stop();
         game1.SetActive(true);
     }
     public void StartGame2()
     {
         outerCover.SetActive(true);
+        bgm.Stop();
         game2.SetActive(true);
     }
     public void SetGameName(string name)
@@ -67,5 +70,9 @@ public class GameManager : MonoBehaviour
     public void GameStartUIOn()
     {
         gameStartUI.gameObject.SetActive(true);
+    }
+    public void MainBGMOn()
+    {
+        bgm.Play();
     }
 }
