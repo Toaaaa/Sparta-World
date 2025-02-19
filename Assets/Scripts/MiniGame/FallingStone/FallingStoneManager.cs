@@ -48,6 +48,7 @@ public class FallingStoneManager : MonoBehaviour
         StartGame = false;
         ResultUI.SetActive(true);
         GameManager.Instance.rankingGame2.SetScore(Score);
+        StopAllCoroutines();
     }
     public void PlayAgain()
     {
@@ -67,5 +68,14 @@ public class FallingStoneManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         StartGame = true;
         Score = 0;
+        StartCoroutine(AddScoreEvery2sec());
+    }
+    IEnumerator AddScoreEvery2sec()
+    {
+        while (StartGame)
+        {
+            yield return new WaitForSeconds(2.0f);
+            Score++;
+        }
     }
 }
