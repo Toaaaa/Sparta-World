@@ -57,7 +57,7 @@ public class FallingStonePlayer : MonoBehaviour //2d UI에서의 플레이어 �
     public void ResetPlayer()// 플레이어 위치 초기화
     {
         rect = GetComponent<RectTransform>();
-        rect.anchoredPosition = new Vector2(0, 50);
+        rect.anchoredPosition = new Vector2(0, 100);
     }
     bool IsOverlappingWithWall()// 벽과 충돌시 이동 제한.
     {
