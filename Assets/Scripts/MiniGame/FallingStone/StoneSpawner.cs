@@ -28,22 +28,14 @@ public class StoneSpawner : MonoBehaviour
             isSpawning = false;
             return;
         }
-        for (int i = 0; i < stoneList.Count; i++)
-        {
-            if (stoneList[i].activeSelf == false)
-            {
-                stoneList[i].SetActive(true);// 돌 생성
-                StonePlace(stoneList[i]);
-                isSpawning = false;
-                break;
-            }
-        }
+        SpawnStone();
+        isSpawning = false;
     }
     void SpawnStone()
     {
         if (CheckAllActive())
         {
-            GameObject stone = Instantiate(stonePrefab, transform.position, Quaternion.identity);
+            GameObject stone = Instantiate(stonePrefab, transform.position, Quaternion.identity,this.transform);
             stoneList.Add(stone);// 새로운 돌 생성 + 추가.
         }
         else
@@ -72,18 +64,28 @@ public class StoneSpawner : MonoBehaviour
         return true;
     }// 만약 모든 돌이 활성화 상태라면.
 
-    public void StonePlace(GameObject stone)
+    public void StonePlace(GameObject stone)// -660 ~ 660 의 범위에 랜덤 배치.
     {
-        // -660 ~ 660 의 범위
         float x = Random.Range(-660, 660);
         stone.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, 0);
     }
-    public void ResetStone()
-    {
-
-    }
     public void StopStone()
     {
-        
+        foreach (GameObject stone in stoneList)
+        {
+            if (stone.activeSelf)
+                stone.GetComponent<Stone>().StopMoving();
+        }
+    }
+    public void ResetStone()
+    {
+        foreach (GameObject stone in stoneList)
+        {
+            if (stone.activeSelf)
+            {
+                stone.SetActive(false);
+                stone.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);// 위치 초기화.
+            }
+        }
     }
 }

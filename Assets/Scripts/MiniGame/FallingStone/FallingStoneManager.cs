@@ -66,6 +66,6 @@ public class FallingStoneManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         StartGame = true;
-        stoneSpawner.StartSpawn();
+        Score = 0;
     }
 }

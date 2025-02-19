@@ -16,4 +16,8 @@ public class Stone : MonoBehaviour
     {
 
     }
+    public void StopMoving()
+    {
+
+    }
 }
