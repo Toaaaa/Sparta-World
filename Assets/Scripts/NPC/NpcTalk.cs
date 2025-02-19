@@ -16,8 +16,10 @@ public class NpcTalk : MonoBehaviour
     };
     public GameObject talkPanel;
     public TextMeshPro talkText;
+    public int talkCount;
 
     CancellationTokenSource cts;// 대화를 한번더 호출시 기존의 비활성화 호출을 취소하기 위한 변수.
+
 
     public void Talk()
     {
@@ -31,7 +33,10 @@ public class NpcTalk : MonoBehaviour
         UniTask.Void(async () =>
         {
             talkPanel.SetActive(true);
-            talkText.text = talkData[Random.Range(0, talkData.Count)];
+            if(talkCount <10)
+                talkText.text = talkData[Random.Range(0, talkData.Count)];
+            else
+                talkText.text = "말걸지마, 안비켜줄거야.";
             await UniTask.Delay(3500,cancellationToken : cts.Token);
             talkPanel.SetActive(false);
         });
