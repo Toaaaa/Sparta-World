@@ -37,6 +37,8 @@ public class StoneSpawner : MonoBehaviour
         {
             GameObject stone = Instantiate(stonePrefab, transform.position, Quaternion.identity,this.transform);
             stoneList.Add(stone);// 새로운 돌 생성 + 추가.
+            StonePlace(stone);// 돌의 위치 조정.
+            stone.GetComponent<Stone>().StartMoving();
         }
         else
         {
@@ -44,8 +46,9 @@ public class StoneSpawner : MonoBehaviour
             {
                 if (stone.activeSelf == false)
                 {
-                    StonePlace(stone);// 돌의 위치 조정.
                     stone.SetActive(true);
+                    StonePlace(stone);// 돌의 위치 조정.
+                    stone.GetComponent<Stone>().StartMoving();
                     break;
                 }
             }
