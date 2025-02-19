@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public FlappyBirdManeger flappyBirdManeger;
     public LeaderBoard rankingGame1;
     public LeaderBoard rankingGame2;
-
+    public GameObject outerCover;// 테두리
 
     [SerializeField] private GameStartUI gameStartUI;
     [SerializeField] private GameObject game1;
@@ -51,10 +51,12 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame1()
     {
+        outerCover.SetActive(true);
         game1.SetActive(true);
     }
     public void StartGame2()
     {
+        outerCover.SetActive(true);
         game2.SetActive(true);
     }
     public void SetGameName(string name)

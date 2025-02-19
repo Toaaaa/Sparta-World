@@ -44,6 +44,7 @@ public class UIMotion : MonoBehaviour
     .OnComplete(() =>
         {
             GameManager.Instance.player.cantAction = false;//UI가 닫히면 플레이어의 움직임을 다시 허용
+            GameManager.Instance.outerCover.SetActive(false);//UI가 닫히면 테두리도 비활성화
             this.gameObject.SetActive(false);
         });
     }
