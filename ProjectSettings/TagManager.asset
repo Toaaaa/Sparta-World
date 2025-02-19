@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Game1
   - Game2
+  - NPC
   layers:
   - Default
   - TransparentFX

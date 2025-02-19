@@ -118,6 +118,11 @@ public class Player : MonoBehaviour
                 GameManager.Instance.GameStartUIOn();
                 cantAction = true;
             }
+            if(scannedObject.tag == "NPC")
+            {
+                Debug.Log("NPC와 대화");
+                scannedObject.GetComponent<NpcTalk>().Talk();
+            }
         }
     }
 }
