@@ -51,8 +51,9 @@ public class Stone : MonoBehaviour
     }
     void ResizeStone()
     {
+        float timeScale = 1+ GameManager.Instance.fallingStoneManager.Score * 0.02f;
         float randomScale = Random.Range(0.8f, 1.4f);
-        rect.localScale = new Vector3(randomScale, randomScale, 1f);
+        rect.localScale = new Vector3(randomScale*timeScale, randomScale*timeScale, 1f);
     }
     public void StopMoving()
     {
